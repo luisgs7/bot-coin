@@ -1,7 +1,7 @@
 '''This file contains constants used in the project.'''
-import os
+from decouple import config
 
 
-__my_apikye = os.getenv("APIKYE")
+__SECRET_KEY = config('SECRET_KEY')
 
-URL = f'https://api.hgbrasil.com/finance?key={__my_apikye}'
+URL = f'https://api.hgbrasil.com/finance?key={__SECRET_KEY}'
