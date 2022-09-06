@@ -12,7 +12,7 @@ class RequestData:
     def data(self):
         ''''Method that returns all API data'''
         data: str = self.mock_data()
-        print(data)
+        return data
 
     def filter_request_data(self):
         '''Filter request the API'''
