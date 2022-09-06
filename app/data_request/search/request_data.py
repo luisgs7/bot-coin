@@ -9,7 +9,7 @@ class RequestData:
 
     def data(self):
         ''''Method that returns all API data'''
-        data: str = self.filter_request_currencies()
+        data: str = self.filter_request_bitcoin()
         print(data)
 
     def filter_request_currencies(self):
@@ -18,5 +18,8 @@ class RequestData:
         return result
 
     def filter_request_bitcoin(self):
-        result: str = requests.get(self.url).json()['results']['bitcoin']
+        result: str = self.btc_mercado_bitcoin()
         return result
+
+    def btc_mercado_bitcoin(self):
+        return requests.get(self.url).json()['results']['bitcoin']['mercadobitcoin']
