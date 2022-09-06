@@ -1,5 +1,5 @@
 '''Main project file.'''
-from search import request_data
+from data_request.search import request_data
 from utils import constants
 
 
