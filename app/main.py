@@ -1,6 +1,6 @@
 '''Main project file.'''
 from search import request_data
-import constants
+import utils
 
 
-request_data.RequestData(url=constants.URL).data()
+request_data.RequestData(url=utils.constants.URL).data()
