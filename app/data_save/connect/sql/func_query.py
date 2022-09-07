@@ -1,16 +1,17 @@
 def query_create_table(table_name: str) -> str:
     query = f"CREATE TABLE {table_name} ( \
-            id SERIAL PRIMAY KEY, \
+            id SERIAL PRIMARY KEY, \
             name VARCHAR(15), \
             buy smallint, \
             sell smallint, \
             variation smallint);"
+            
     return query
 
 def query_select_value(table_name: str) -> str:
     query = f"SELECT id, name, buy, sell, variation \
             FROM {table_name} \
-            WHERE id and 1;" \
+            WHERE id and 1;" 
     return query
 
 
