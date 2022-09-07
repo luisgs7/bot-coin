@@ -1,5 +1,5 @@
 import psycopg2
-from app.data_save.connect.sql import func_query
+from sql import func_query
 
 
 class DataConnect():
