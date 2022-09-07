@@ -7,7 +7,7 @@ from data_cleaning.cleaning import cleaning
 def main() -> None:
     '''Function Main'''
     result = request_data.RequestData(url=constants.URL).data()
-    data = cleaning(result).clear_cureencies()
+    data = cleaning(result).clear_curencies()
     btc = cleaning(result).clear_btc()
     print(f"Data: {data}")
     print(f"BTC: {btc}")
