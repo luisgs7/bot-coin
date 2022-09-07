@@ -1,5 +1,5 @@
 def query_create_table(table_name: str) -> str:
-    query = f"CREATE TABLE {table_name} ( \
+    query = f"CREATE TABLE IF NOT EXISTS {table_name} ( \
             id SERIAL PRIMARY KEY, \
             name VARCHAR(15), \
             buy smallint, \
