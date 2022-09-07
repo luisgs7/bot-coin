@@ -7,7 +7,7 @@ class cleaning():
         self.keys = ['USD', 'EUR', 'CAD']
         self.btc = ['mercadobitcoin']
 
-    def clear_cureencies(self):
+    def clear_curencies(self):
         result: Dict = []
         for key in self.keys:
             result.append(self.data['currencies'][key]['name'])
