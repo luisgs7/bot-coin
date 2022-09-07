@@ -10,16 +10,15 @@ def query_create_table(table_name: str) -> str:
 
 def query_select_value(table_name: str) -> str:
     query = f"SELECT id, name, buy, sell, variation \
-            FROM {table_name} \
-            WHERE id and 1;" 
+            FROM {table_name};" 
     return query
 
 
-def query_insert_value(table_name: str, id: int,
+def query_insert_value(table_name: str,
                        name: str, buy: float,
                        sell: float, variation: float) -> str:
     query = f"INSERT INTO {table_name} \
-                        VALUES ({id}, '{name}', {buy}, {sell}, {variation});"
+                        VALUES (default, '{name}', {buy}, {sell}, {variation});"
     return query
 
 def query_update_value(table_name: str, id: int,
@@ -30,7 +29,7 @@ def query_update_value(table_name: str, id: int,
               buy={buy}, \
               sell={sell}, \
               variation={variation} \
-              WHERE id=1;"
+              WHERE id={id};"
     
     return query
 
