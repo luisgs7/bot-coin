@@ -1,6 +1,7 @@
 '''Clean up the data provided by the API'''
 from typing import Dict
 
+
 class cleaning():
     def __init__(self, data: dict):
         self.data = data
@@ -24,5 +25,5 @@ class cleaning():
             result.append(self.data['bitcoin'][btc]['buy'])
             result.append(self.data['bitcoin'][btc]['sell'])
             result.append(self.data['bitcoin'][btc]['variation'])
-        
+
         return result
