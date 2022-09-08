@@ -31,16 +31,3 @@ class DataConnect():
     def _create_table(self):
         res = self.cur.execute(func_query.query_create_table(self._tb_name))
         return f"Criada a {self._tb_name}"
-
-
-pessoa = "Pedro"
-pessoa2 = "José"
-#print(f"Create Table: {DataConnect().create_table()}")
-#print(f"Insert values: {DataConnect().insert_coin(name=pessoa, buy=1.34, sell=1.56, variation=-1.34)}")
-
-#print(a[0])
-#print(f"Update Values: {DataConnect().update_coin(id=3,name=pessoa2, buy=2.4, sell=3.8, variation=1.43)}")
-
-a = DataConnect().select_coin()
-print(f"SELECT Values: {a}")
-
