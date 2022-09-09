@@ -1,15 +1,16 @@
 '''Clean up the data provided by the API'''
 from typing import Dict
-from data_save.data_connect import DataConnect
 from data_cleaning import data_format
 from data_save import data_save
+from utils import constants
 
 
 class cleaning_data():
     def __init__(self, data: dict):
         self.data = data
-        self.keys = ['USD', 'EUR', 'CAD', 'JPY']
-        self.btc = ['mercadobitcoin']
+        self.keys = constants.COINS
+        self.btc = constants.BTC
+        self.lenght = constants.LENGHT
 
     def clear_curencies(self):
         result: Dict = []
@@ -31,7 +32,7 @@ class cleaning_data():
 
     def clear_btc(self):
         result: Dict = []
-        sum: int = 5
+        sum: int = self.lenght
         for btc in self.btc:
             result.append(self.data['bitcoin'][btc]['name'])
             result.append(self.data['bitcoin'][btc]['buy'])
