@@ -22,7 +22,6 @@ class cleaning_data():
             for data in result:
                 if data == None:
                     result[count] = 0
-                    print(f"NONE == {data}")
                 count+=1
             print(f"Result: {result}")
             
@@ -46,7 +45,6 @@ class cleaning_data():
             for data in result:
                 if data == None:
                     result[count] = 0
-                    print(f"NONE == {data}")
                 count+=1
             print(f"Result: {result}")
 
