@@ -22,7 +22,6 @@ class cleaning_data():
             result.append(self.data['currencies'][key]['variation'])
             
             result = data_format.data_format(result)
-            print(f"Result: {result}")
 
             data_save.data_save(data=result, id_key=sum)
             result.clear()
@@ -40,7 +39,6 @@ class cleaning_data():
             result.append(self.data['bitcoin'][btc]['variation'])
             
             result = data_format.data_format(result)
-            print(f"Result: {result}")
 
             data_save.data_save(data=result, id_key=sum)
             result.clear()
