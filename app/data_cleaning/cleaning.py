@@ -1,7 +1,8 @@
 '''Clean up the data provided by the API'''
 from typing import Dict
 from data_save.data_connect import DataConnect
-from data_cleaning import data_format 
+from data_cleaning import data_format
+from data_save import data_save
 
 
 class cleaning_data():
@@ -22,7 +23,7 @@ class cleaning_data():
             result = data_format.data_format(result)
             print(f"Result: {result}")
 
-            DataConnect().update_coin(id=sum, name=result[0], buy=result[1], sell=result[2], variation=result[3])
+            data_save.data_save(data=result, id_key=sum)
             result.clear()
             sum+=1
 
@@ -40,7 +41,7 @@ class cleaning_data():
             result = data_format.data_format(result)
             print(f"Result: {result}")
 
-            DataConnect().update_coin(id=sum, name=result[0], buy=result[1], sell=result[2], variation=result[3])
+            data_save.data_save(data=result, id_key=sum)
             result.clear()
             sum+=1
 
