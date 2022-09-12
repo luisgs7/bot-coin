@@ -1,5 +1,6 @@
 '''Module that has functions that execute SQL queries.'''
 
+
 def query_create_table(table_name: str) -> str:
     '''Function that creates the database table.'''
     query = f"CREATE TABLE IF NOT EXISTS {table_name} ( \
