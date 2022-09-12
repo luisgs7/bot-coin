@@ -1,11 +1,13 @@
+"""Module responsible for performing operations on the database."""
 import psycopg2
-from data_save.sql import func_query
 from decouple import config
+from data_save.sql import func_query
 
 _BASE_URL: str = config("DATABASE_URL")
 
 
-class DataConnect():
+class DataConnect:
+    """Class responsible for performing operations on the database."""
 
     def __init__(self):
         self._con = psycopg2.connect(_BASE_URL)
@@ -14,21 +16,30 @@ class DataConnect():
         print("Database running...")
 
     def select_coin(self):
+        """Perform select on the database."""
         res = self.cur.execute(func_query.query_select_value(self._tb_name))
         res = self.cur.fetchone()
         return res
-    
+
     def _insert_coin(self, name: str, buy: float, sell: float, variation: float):
-        self.cur.execute(func_query.query_insert_value(self._tb_name, name, buy, sell, variation))
+        """Insert coins into the database."""
+        self.cur.execute(
+            func_query.query_insert_value(self._tb_name, name, buy, sell, variation)
+        )
         self._con.commit()
-        return None
-    
-    def update_coin(self, id: int, name: str, buy: float, sell: float, variation: float):
-        self.cur.execute(func_query.query_update_value(self._tb_name, id, name, buy, sell, variation))
+
+    def update_coin(
+        self, _id: int, name: str, buy: float, sell: float, variation: float
+    ):
+        """Coin update in the database."""
+        self.cur.execute(
+            func_query.query_update_value(
+                self._tb_name, _id, name, buy, sell, variation
+            )
+        )
         self._con.commit()
         print("Update data...")
-        return None
 
     def _create_table(self):
-        res = self.cur.execute(func_query.query_create_table(self._tb_name))
-        return None
+        """Method to create the database, used only the first time the project is started."""
+        self.cur.execute(func_query.query_create_table(self._tb_name))
