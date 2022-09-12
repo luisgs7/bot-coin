@@ -1,18 +1,16 @@
 """Module responsible for performing operations on the database."""
 import psycopg2
-from decouple import config
+from utils import constants
 from data_save.sql import func_query
-
-_BASE_URL: str = config("DATABASE_URL")
 
 
 class DataConnect:
     """Class responsible for performing operations on the database."""
 
     def __init__(self):
-        self._con = psycopg2.connect(_BASE_URL)
+        self._con = psycopg2.connect(constants.BASE_URL)
         self.cur = self._con.cursor()
-        self._tb_name = "table_coin"
+        self._tb_name = constants.TABLE_NAME
         print("Database running...")
 
     def select_coin(self):
