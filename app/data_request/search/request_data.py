@@ -11,12 +11,12 @@ class RequestData:
 
     def data(self):
         """'Method that returns all API data"""
-        data: str = self.mock_data()
+        data: str = self.filter_request_data()
         return data
 
     def filter_request_data(self):
         """Filter request the API"""
-        result: str = requests.get(self.url, timeout=0.001).json()["results"]
+        result: str = requests.get(self.url).json()["results"]
         return result
 
     def mock_data(self):
