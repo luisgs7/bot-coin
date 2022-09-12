@@ -11,7 +11,7 @@ class RequestData:
 
     def data(self):
         """'Method that returns all API data"""
-        data: str = self.filter_request_data()
+        data: str = self.mock_data()
         return data
 
     def filter_request_data(self):
