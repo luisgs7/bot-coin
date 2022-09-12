@@ -13,3 +13,15 @@
 * EUR -> BRL **(buy/sell)**
 * CAD -> BRL **(buy/sell)**
 * BTC -> BRL **(buy/sell)**
+
+## Docker-compose Commands
+
+ Pytest
+```
+docker-compose run app sh -c "pytest"
+```
+
+ Flake8
+```
+docker-compose run app sh -c "flake8"
+```
