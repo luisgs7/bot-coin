@@ -6,7 +6,7 @@ def data_format(data: List) -> List:
     """Function responsible for formatting data correctly."""
     count = 0
     for item in data:
-        if item == None:  # pylint: disable= singleton-comparison
+        if item == None:  # noqa pylint: disable= singleton-comparison
             data[count] = 0
         count += 1
     return data
