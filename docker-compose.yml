@@ -5,7 +5,7 @@ services:
     build:
       context: .
     volumes:
-      - ./app:/app
+      - ./data:/data
     command: >
       sh -c "python main.py"
   

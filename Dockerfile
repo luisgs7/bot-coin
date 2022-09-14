@@ -3,9 +3,10 @@ LABEL maintainer="iadevlab.com"
 
 ENV PYTHONUNBUFFERED 1
 
-COPY ./app /app
+COPY ./data /data
+COPY ./bot /bot
 COPY ./requirements.txt /tmp/requirements.txt
-WORKDIR /app
+WORKDIR /data
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
