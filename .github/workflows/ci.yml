@@ -20,11 +20,17 @@ jobs:
       - name: Test Data
         run: docker-compose run --rm app sh -c "pytest"
 
-      - name: Lint Data
+      - name: Lint Flake8 Data
         run: docker-compose run --rm app sh -c "flake8"
+      
+      - name: Lint Pylint Data
+        run: docker-compose run --rm app sh -c "pylint *"
       
       - name: Test Bot
         run: docker-compose run --rm bot sh -c "pytest"
 
-      - name: Lint Bot
-        run: docker-compose run --rm bot sh -c "flake8"
+      - name: Lint Flake8 Bot
+        run: docker-compose run --rm bot sh -c "flake8 ../bot/"
+      
+      - name: Lint Pylint Bot
+        run:  docker-compose run --rm bot sh -c "pylint ../bot/"
