@@ -17,8 +17,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Test
-        run: docker-compose run --rm app sh -c "pytest"
+      - name: Test Data
+        run: docker-compose run --rm appdata sh -c "pytest"
 
-      - name: Lint
-        run: docker-compose run --rm app sh -c "flake8"
+      - name: Lint Data
+        run: docker-compose run --rm appdata sh -c "flake8"
+      
+      - name: Test Bot
+        run: docker-compose run --rm appbot sh -c "pytest"
+
+      - name: Lint Bot
+        run: docker-compose run --rm appbot sh -c "flake8"
