@@ -8,3 +8,11 @@ services:
       - ./app:/app
     command: >
       sh -c "python main.py"
+  
+  bot:
+    build:
+      context: .
+    volumes:
+      - ./bot:/bot
+    command: >
+      sh -c "python ../bot/start.py"
