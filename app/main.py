@@ -1,6 +1,6 @@
 """Main project file."""
 import sched
-from data_request.search import request_data
+from data_request import request_data
 from utils import constants
 from data_cleaning.cleaning import CleaningData
 
