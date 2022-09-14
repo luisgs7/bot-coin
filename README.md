@@ -18,10 +18,14 @@
 
  Pytest
 ```
-docker-compose run app sh -c "pytest"
+docker-compose run --rm app sh -c "pytest"
 ```
 
  Flake8
 ```
-docker-compose run app sh -c "flake8"
+docker-compose run --rm app sh -c "flake8"
+```
+
+```
+docker-compose build && docker-compose up
 ```
