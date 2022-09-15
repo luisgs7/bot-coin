@@ -17,6 +17,7 @@ def hello() -> None:
 
 scheduler.run(blocking=True)
 
+
 def bot():
     '''Bot Function'''
     print("Bot Function...")
