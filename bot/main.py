@@ -2,4 +2,4 @@
 from app import main # noqa pylint: disable=import-error
 
 
-main.hello()
+main.bot()
