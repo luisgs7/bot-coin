@@ -8,7 +8,8 @@ def query_create_table(table_name: str) -> str:
             name VARCHAR(15), \
             buy smallint, \
             sell smallint, \
-            variation smallint);"
+            variation smallint, \
+            date_time timestamptz);"
 
     return query
 
@@ -37,7 +38,8 @@ def query_update_value(
               name='{name}', \
               buy={buy}, \
               sell={sell}, \
-              variation={variation} \
+              variation={variation}, \
+              date_time=default \
               WHERE id={_id};"
 
     return query
