@@ -15,6 +15,8 @@ def hello() -> None:
     print("BOT Waiting: 2 seconds...")
 
 
-hello()
-
 scheduler.run(blocking=True)
+
+def bot():
+    '''Bot Function'''
+    print("Bot Function...")
