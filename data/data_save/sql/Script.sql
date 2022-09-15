@@ -1,4 +1,4 @@
-select * from table_coin order by id;
+select * from table_coin order by id limit 5;
 
 
 CREATE TABLE IF NOT EXISTS table_coin (
