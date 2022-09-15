@@ -1,5 +1,6 @@
 """ Create Table """
-CREATE TABLE table_coin (id SERIAL PRIMAY KEY, 
+CREATE TABLE IF NOT EXISTS table_coin (
+						id SERIAL PRIMARY KEY, 
                         name VARCHAR(15),
                         buy smallint, 
                         sell smallint, 
