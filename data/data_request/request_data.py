@@ -16,7 +16,7 @@ class RequestData:
 
     def filter_request_data(self):
         """Filter request the API"""
-        result: str = requests.get(self.url).json()["results"] # pylint: disable= missing-timeout
+        result: str = requests.get(self.url).json()["results"] # noqa pylint: disable= missing-timeout
         return result
 
     def mock_data(self):
