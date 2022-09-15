@@ -15,4 +15,4 @@ services:
     volumes:
       - ./bot:/bot
     command: >
-      sh -c "python ../bot/start.py"
+      sh -c "python ../bot/main.py"

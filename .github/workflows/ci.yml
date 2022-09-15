@@ -27,7 +27,7 @@ jobs:
         run: docker-compose run --rm app sh -c "pylint *"
       
       - name: Test Bot
-        run: docker-compose run --rm bot sh -c "pytest"
+        run: docker-compose run --rm bot sh -c "pytest ../bot/"
 
       - name: Lint Flake8 Bot
         run: docker-compose run --rm bot sh -c "flake8 ../bot/"
