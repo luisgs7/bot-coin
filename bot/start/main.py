@@ -5,6 +5,7 @@ import requests
 from decouple import config
 
 from query_response import app # noqa pylint: disable=import-error
+from start import option # noqa pylint: disable=import-error
 
 
 TOKEN: str = config("TELEGRAM_BOT_TOKEN")
@@ -30,7 +31,7 @@ class TelegramBot:
                     message = str(dado["message"]["text"])
                     chat_id = dado["message"]["from"]["id"]
 
-                    primeira_message = int(dado["message"]["message_id"]) == 1
+                    primeira_message: bool = int(dado["message"]["message_id"]) == 1
                     resposta = self.criar_resposta(message, primeira_message)
                     self.responder(resposta, chat_id)
 
@@ -43,30 +44,10 @@ class TelegramBot:
         resultado = requests.get(link_requisicao) # noqa pylint: disable= missing-timeout
         return json.loads(resultado.content)
 
-    def criar_resposta(self, message, primeira_message):
+    def criar_resposta(self, message: str, primeira_message: bool):
         '''Send personalized responses to the bot,
            according to the request made.'''
-        if primeira_message or message.lower() in 'menu': #noqa pylint: disable=no-else-return
-            return 'Bem vindo ao menu...' 
-        else:
-            match message:
-                #TODO Dollar Option
-                case '1':
-                    return 'Dollar Option'
-                #TODO Euro Option
-                case '2':
-                    return 'Euro Option'
-                #TODO Canadian Dollar
-                case '3':
-                    return 'Canadian Dollar'
-                #TODO Japanese Yen
-                case '4':
-                    return 'Japanese Yen'
-                #TODO Mercado Bitcoin
-                case '5':
-                    return 'Mercado Bitcoin'
-                case _:
-                    return 'Opção inválida, digite "menu" e volte ao MENU do Bot :)'
+        return option.response_coin(message, primeira_message)
 
     def responder(self, resposta, chat_id):
         '''Method responsible for sending responses to the bot user.'''
