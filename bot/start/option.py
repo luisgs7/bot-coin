@@ -1,22 +1,34 @@
+from query_response import app
+
+
 def response_coin(message: str, first_message):
     if first_message or message.lower() in 'menu': #noqa pylint: disable=no-else-return
             return 'Bem vindo ao menu...' 
     else:
         match message:
-            #TODO Dollar Option
+
             case '1':
-                return 'Dollar Option'
-            #TODO Euro Option
+                response = format_query(1)
+                return response
+
             case '2':
-                return 'Euro Option'
-            #TODO Canadian Dollar
+                response = format_query(2)
+                return response
+
             case '3':
-                return 'Canadian Dollar'
-            #TODO Japanese Yen
+                response = format_query(3)
+                return response
+
             case '4':
-                return 'Japanese Yen'
-            #TODO Mercado Bitcoin
+                response = format_query(4)
+                return response
+
             case '5':
-                return 'Mercado Bitcoin'
+                response = format_query(5)
+                return response
             case _:
                 return 'Opção inválida, digite "menu" e volte ao MENU do Bot :)'
+
+
+def format_query(_id: int):
+    return app.DataConnect(_id).select_coin_id()
