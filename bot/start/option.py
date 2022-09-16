@@ -1,9 +1,11 @@
-from query_response import app
+'''Option Module For Bot'''
+from query_response import app  # noqa pylint: disable=import-error
 
 
-def response_coin(message: str, first_message):
-    if first_message or message.lower() in 'menu': #noqa pylint: disable=no-else-return
-            return 'Bem vindo ao menu...' 
+def response_coin(message: str, first_message): # noqa pylint: disable=too-many-return-statements
+    '''Response data for user'''
+    if first_message or message.lower() in 'menu': # noqa pylint: disable=no-else-return
+        return 'Bem vindo ao menu...'
     else:
         match message:
 
@@ -31,4 +33,5 @@ def response_coin(message: str, first_message):
 
 
 def format_query(_id: int):
+    '''Performs data search, according to the informed id'''
     return app.DataConnect(_id).select_coin_id()

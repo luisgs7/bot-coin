@@ -1,8 +1,9 @@
-from utils import constants, connect
-from query_response.func_query import query
+'''Class responsible for selecting data from the database.'''
+from utils import constants, connect # noqa pylint: disable=import-error
+from .func_query import query
 
 
-class DataConnect:
+class DataConnect: # noqa pylint: disable=too-few-public-methods
     """Class responsible for performing operations on the database."""
 
     def __init__(self, _id):

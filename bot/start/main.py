@@ -1,11 +1,9 @@
 """Start Bot Telegram Module"""
-import os
 import json
 import requests
-from decouple import config
 
-from query_response import app # noqa pylint: disable=import-error
-from start import option # noqa pylint: disable=import-error
+from decouple import config
+from bot.start import option
 
 
 TOKEN: str = config("TELEGRAM_BOT_TOKEN")

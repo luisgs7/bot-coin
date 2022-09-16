@@ -1,6 +1,6 @@
 '''Connect Database Module'''
 import psycopg2
-from utils import constants
+from utils import constants # noqa pylint: disable=import-error
 
 
 def link():
