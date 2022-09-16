@@ -11,11 +11,14 @@ TOKEN: str = config("TELEGRAM_BOT_TOKEN")
 
 
 class TelegramBot:
+    '''Class responsible for initializing and performing
+       the main functions of the bot.'''
     def __init__(self):
         self.url_base = f'https://api.telegram.org/bot{TOKEN}/'
         print("Bot running...")
 
-    def Iniciar(self):
+    def iniciar(self):
+        '''Start Bot'''
         update_id = None
         while True:
             atualizacao = self.obter_novas_mensagens(update_id)
@@ -32,6 +35,7 @@ class TelegramBot:
                     self.responder(resposta, chat_id)
 
     def obter_novas_mensagens(self, update_id):
+        '''Get new messages sent to bot'''
         link_requisicao = f'{self.url_base}getUpdates?timeout=100'
         if update_id:
             link_requisicao = f'{link_requisicao}&offset={update_id + 1}'
@@ -40,9 +44,10 @@ class TelegramBot:
         return json.loads(resultado.content)
 
     def criar_resposta(self, message, primeira_message):
-        if primeira_message == True or message.lower() in 'menu':
-            return 'Funcionou'
-        
+        '''Send personalized responses to the bot,
+           according to the request made.'''
+        if primeira_message or message.lower() in 'menu': #noqa pylint: disable=no-else-return
+            return 'Bem vindo ao menu...' 
         else:
             match message:
                 #TODO Dollar Option
@@ -61,9 +66,9 @@ class TelegramBot:
                 case '5':
                     return 'Mercado Bitcoin'
                 case _:
-                    return 'Opção inválida, digite 1 e volte ao MENU ):' 
-
+                    return 'Opção inválida, digite "menu" e volte ao MENU do Bot :)'
 
     def responder(self, resposta, chat_id):
+        '''Method responsible for sending responses to the bot user.'''
         link_requisicao = f'{self.url_base}sendMessage?chat_id={chat_id}&text={resposta}'
         requests.get(link_requisicao) # noqa pylint: disable= missing-timeout
