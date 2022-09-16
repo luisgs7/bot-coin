@@ -1,6 +1,5 @@
 """Module responsible for performing operations on the database."""
-import psycopg2
-from utils import constants
+from utils import constants, connect
 from data_save.sql import func_query
 
 
@@ -8,7 +7,7 @@ class DataConnect:
     """Class responsible for performing operations on the database."""
 
     def __init__(self):
-        self._con = psycopg2.connect(constants.BASE_URL)
+        self._con = connect.link()
         self.cur = self._con.cursor()
         self._tb_name = constants.TABLE_NAME
         print("Database running...")
