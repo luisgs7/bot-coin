@@ -3,7 +3,7 @@ import json
 import requests
 
 from decouple import config
-from bot.start import option
+from start import option # noqa pylint: disable=import-error
 
 
 TOKEN: str = config("TELEGRAM_BOT_TOKEN")
