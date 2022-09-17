@@ -1,11 +1,12 @@
 '''Option Module For Bot'''
+from start.messages import welcome # noqa pylint: disable=import-error
 from query_response import app  # noqa pylint: disable=import-error
 
 
 def response_coin(message: str, first_message): # noqa pylint: disable=too-many-return-statements
     '''Response data for user'''
     if first_message or message.lower() in 'menu': # noqa pylint: disable=no-else-return
-        return 'Bem vindo ao menu...'
+        return welcome()
     else:
         match message:
 
