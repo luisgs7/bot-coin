@@ -1,6 +1,5 @@
 '''Option Module For Bot'''
-from start.messages import welcome # noqa pylint: disable=import-error
-from query_response import app  # noqa pylint: disable=import-error
+from start.messages import welcome, format_query # noqa pylint: disable=import-error
 
 
 def response_coin(message: str, first_message): # noqa pylint: disable=too-many-return-statements
@@ -33,6 +32,3 @@ def response_coin(message: str, first_message): # noqa pylint: disable=too-many-
                 return 'Opção inválida, digite "menu" e volte ao MENU do Bot :)'
 
 
-def format_query(_id: int):
-    '''Performs data search, according to the informed id'''
-    return app.DataConnect(_id).select_coin_id()
