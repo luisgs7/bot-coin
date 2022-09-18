@@ -1,5 +1,7 @@
 '''Present Messages for Bot'''
 import os
+from typing import Tuple
+from query_response import app  # noqa pylint: disable=import-error
 
 
 def welcome() -> str:
@@ -12,3 +14,18 @@ def welcome() -> str:
       5 - Cotação do Bitcoin(Mercado Bitcoin)
       '''
     return text_menu
+
+
+def format_query(_id: int):
+    '''Performs data search, according to the informed id'''
+    result: Tuple = app.DataConnect(_id).select_coin_id()
+    data_format = _format_response(result)
+    return data_format
+
+
+def _format_response(query: Tuple):
+    '''Return messase response formated'''
+    return f'''Cotação:    
+        - {query[0]}: R$ {round(query[1], 3)}{os.linesep}\
+        - Variação: {query[2]}%{os.linesep}\
+        - Dados salvos em: {query[3]}'''
