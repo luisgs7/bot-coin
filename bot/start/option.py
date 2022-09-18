@@ -1,5 +1,5 @@
 '''Option Module For Bot'''
-from start.messages import welcome, format_query # noqa pylint: disable=import-error
+from start.messages import welcome, format_query, about # noqa pylint: disable=import-error
 
 
 def response_coin(message: str, first_message): # noqa pylint: disable=too-many-return-statements
@@ -28,5 +28,7 @@ def response_coin(message: str, first_message): # noqa pylint: disable=too-many-
             case '5':
                 response = format_query(5)
                 return response
+            case '6':
+                return about()
             case _:
                 return 'Opção inválida, digite "menu" e volte ao MENU do Bot :)'
