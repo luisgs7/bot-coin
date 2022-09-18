@@ -30,5 +30,3 @@ def response_coin(message: str, first_message): # noqa pylint: disable=too-many-
                 return response
             case _:
                 return 'Opção inválida, digite "menu" e volte ao MENU do Bot :)'
-
-

@@ -25,7 +25,7 @@ def format_query(_id: int):
 
 def _format_response(query: Tuple):
     '''Return messase response formated'''
-    return f'''Cotação:    
+    return f'''Cotação:
         - {query[0]}: R$ {round(query[1], 3)}{os.linesep}\
         - Variação: {query[2]}%{os.linesep}\
         - Dados salvos em: {query[3]}'''
