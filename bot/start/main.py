@@ -2,52 +2,49 @@
 import json
 import requests
 
-from decouple import config
 from start import option # noqa pylint: disable=import-error
-
-
-TOKEN: str = config("TELEGRAM_BOT_TOKEN")
+from utils import constants # noqa pylint: disable=import-error
 
 
 class TelegramBot:
     '''Class responsible for initializing and performing
        the main functions of the bot.'''
     def __init__(self):
-        self.url_base = f'https://api.telegram.org/bot{TOKEN}/'
+        self.url_base = constants.TELEGRAM_URL
         print("Bot running...")
 
-    def iniciar(self):
+    def start(self):
         '''Start Bot'''
         update_id = None
         while True:
-            atualizacao = self.obter_novas_mensagens(update_id)
-            dados = atualizacao["result"]
+            update = self.get_new_messages(update_id)
+            data = update["result"]
 
-            if dados:
-                for dado in dados:
+            if data:
+                for dado in data:
                     update_id = dado['update_id']
                     message = str(dado["message"]["text"])
                     chat_id = dado["message"]["from"]["id"]
 
-                    primeira_message: bool = int(dado["message"]["message_id"]) == 1
-                    resposta = self.criar_resposta(message, primeira_message)
-                    self.responder(resposta, chat_id)
+                    primary_messase: bool = int(dado["message"]["message_id"]) == 1
+                    response = self.generate_response(message, primary_messase)
+                    self.reply(response, chat_id)
 
-    def obter_novas_mensagens(self, update_id):
+    def get_new_messages(self, update_id):
         '''Get new messages sent to bot'''
-        link_requisicao = f'{self.url_base}getUpdates?timeout=100'
+        link_request = f'{self.url_base}getUpdates?timeout=100'
         if update_id:
-            link_requisicao = f'{link_requisicao}&offset={update_id + 1}'
+            link_request = f'{link_request}&offset={update_id + 1}'
 
-        resultado = requests.get(link_requisicao) # noqa pylint: disable= missing-timeout
-        return json.loads(resultado.content)
+        result = requests.get(link_request) # noqa pylint: disable= missing-timeout
+        return json.loads(result.content)
 
-    def criar_resposta(self, message: str, primeira_message: bool):
+    def generate_response(self, message: str, primary_messase: bool):
         '''Send personalized responses to the bot,
            according to the request made.'''
-        return option.response_coin(message, primeira_message)
+        return option.response_coin(message, primary_messase)
 
-    def responder(self, resposta, chat_id):
+    def reply(self, response, chat_id):
         '''Method responsible for sending responses to the bot user.'''
-        link_requisicao = f'{self.url_base}sendMessage?chat_id={chat_id}&text={resposta}'
-        requests.get(link_requisicao) # noqa pylint: disable= missing-timeout
+        link_request = f'{self.url_base}sendMessage?chat_id={chat_id}&text={response}'
+        requests.get(link_request) # noqa pylint: disable= missing-timeout
