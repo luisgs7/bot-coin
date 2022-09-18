@@ -2,7 +2,7 @@
 import os
 from typing import Tuple
 from query_response import app  # noqa pylint: disable=import-error
-from utils import constants
+from utils import constants # noqa pylint: disable=import-error
 
 
 def welcome() -> str:
@@ -18,7 +18,7 @@ def welcome() -> str:
     return text_menu
 
 
-def format_query(_id: int)-> str:
+def format_query(_id: int) -> str:
     '''Performs data search, according to the informed id'''
     result: Tuple = app.DataConnect(_id).select_coin_id()
     data_format = _format_response(result)
