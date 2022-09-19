@@ -27,11 +27,14 @@ def format_query(_id: int) -> str:
 
 def _format_response(query: Tuple) -> str:
     '''Return messase response formated'''
-    print(query[3])
+    date_time = str(query[3])
+    date = date_time[0:10]
+    time = date_time[11:19]
     return f'''Cotação:
     - {query[0]}: R$ {round(query[1], 3)}{os.linesep}\
     - Variação: {query[2]}%{os.linesep}\
-    - Dados salvos em: {query[3]}'''
+    - Data: {date}{os.linesep}\
+    - Hora: {time}'''
 
 
 def about():
