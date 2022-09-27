@@ -8,7 +8,7 @@ URL: str = f"https://api.hgbrasil.com/finance?key={SECRET_KEY}"
 TIME: int = int(config("TIME"))
 
 
-TABLE_NAME: str = config("TABLE_NAME")
+TABLE_NAME: str = "bot_coin_table"
 BASE_URL: str = config("DATABASE_URL")
 
 
