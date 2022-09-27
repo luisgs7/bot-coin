@@ -4,7 +4,7 @@ from start.messages import welcome, format_query, about # noqa pylint: disable=i
 
 def response_coin(message: str, first_message): # noqa pylint: disable=too-many-return-statements
     '''Response data for user'''
-    if first_message or message.lower() in 'menu': # noqa pylint: disable=no-else-return
+    if first_message or message.lower() in 'menu' or message in '/start': # noqa pylint: disable=no-else-return
         return welcome()
     else:
         match message:
