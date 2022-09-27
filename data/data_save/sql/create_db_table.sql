@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS table_app (
                         buy real, 
                         sell real, 
                         variation real,
-                        date_time timestamp);
+                        date_time timestamp  default current_timestamp);
 
 
 """ MODIFY THE TIME ZONE TO YOUR LOCATION. """
