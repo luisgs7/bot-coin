@@ -18,7 +18,8 @@ services:
       context: .
     volumes:
       - ./bot:/bot
-
+    command: >
+      sh -c "python ../bot/main.py"
     networks:
       - net_db
     depends_on:
