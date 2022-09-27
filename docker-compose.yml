@@ -29,11 +29,11 @@ services:
     volumes:
       - ./db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB
+      - POSTGRES_DB=bot_data
       - POSTGRES_USER
       - POSTGRES_PASSWORD
     ports:
-      - ${DB_PORT}:5432
+      - 5432:5432
     env_file:
       - .env
     networks:
