@@ -2,7 +2,7 @@
 from decouple import config
 
 DATABASE_URL = config("DATABASE_URL")
-TABLE_NAME = config("TABLE_NAME")
+TABLE_NAME: str = "bot_coin_table"
 
 TOKEN: str = config("TELEGRAM_BOT_TOKEN")
 TELEGRAM_URL = f'https://api.telegram.org/bot{TOKEN}/'

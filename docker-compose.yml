@@ -29,12 +29,15 @@ services:
     image: postgres:13-alpine
     volumes:
       - ./db:/var/lib/postgresql/data
+      # Scripts
+      - ./scripts:/scripts
+      - ./scripts/init.sql:docker-entrypoint-initdb.d/init.sql
     environment:
-      - POSTGRES_DB
+      - POSTGRES_DB=bot_data
       - POSTGRES_USER
       - POSTGRES_PASSWORD
     ports:
-      - ${DB_PORT}:5432
+      - 5432:5432
     env_file:
       - .env
     networks:
