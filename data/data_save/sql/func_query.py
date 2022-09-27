@@ -9,7 +9,7 @@ def query_create_table(table_name: str) -> str:
             buy smallint, \
             sell smallint, \
             variation smallint, \
-            date_time timestamptz);"
+            date_time timestamp default current_timestamp);"
 
     return query
 
@@ -26,7 +26,7 @@ def query_insert_value(
 ) -> str:
     '''Function that executes an Inset on the corresponding table.'''
     query = f"INSERT INTO {table_name} \
-                        VALUES (default, '{name}', {buy}, {sell}, {variation});"
+                        VALUES (default, '{name}', {buy}, {sell}, {variation}, default);"
     return query
 
 
