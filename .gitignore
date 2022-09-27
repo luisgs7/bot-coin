@@ -5,6 +5,7 @@ __pycache__/
 *.db
 # C extensions
 *.so
+db/
 
 # Distribution / packaging
 .Python
