@@ -1,11 +1,12 @@
 """Main project file."""
 import sched
 from data_request import request
-from data_save import save
+from data_save import save, start_data
 from utils import constants
 
 scheduler = sched.scheduler()
 
+start_data.start_table()
 
 def main() -> None:
     """Function Main"""
