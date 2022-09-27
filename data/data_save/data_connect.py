@@ -36,7 +36,3 @@ class DataConnect:
         )
         self._con.commit()
         print("Update data...")
-
-    def _create_table(self):
-        """Method to create the database, used only the first time the project is started."""
-        self.cur.execute(func_query.query_create_table(self._tb_name))

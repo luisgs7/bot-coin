@@ -1,19 +1,6 @@
 '''Module that has functions that execute SQL queries.'''
 
 
-def query_create_table(table_name: str) -> str:
-    '''Function that creates the database table.'''
-    query = f"CREATE TABLE IF NOT EXISTS {table_name} ( \
-            id SERIAL PRIMARY KEY, \
-            name VARCHAR(15), \
-            buy smallint, \
-            sell smallint, \
-            variation smallint, \
-            date_time timestamp default current_timestamp);"
-
-    return query
-
-
 def query_select_value(table_name: str) -> str:
     '''Function that performs a select on the corresponding table.'''
     query = f"SELECT id, name, buy, sell, variation \
@@ -42,10 +29,4 @@ def query_update_value(
               date_time=default \
               WHERE id={_id};"
 
-    return query
-
-
-def query_drop_db(table_name: str) -> str:
-    '''FUNCTION THAT DROPS THE DATABASE.'''
-    query = f"DROP TABLE {table_name};"
     return query
