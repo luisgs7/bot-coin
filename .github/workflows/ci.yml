@@ -22,15 +22,18 @@ jobs:
 
       - name: Lint Flake8 Data
         run: docker-compose run --rm app sh -c "flake8"
-      
+
       - name: Lint Pylint Data
         run: docker-compose run --rm app sh -c "pylint *"
-      
+
+      - name: Permission /db
+        run: docker-compose run --rm bot sh -c "chmod -R 755 /db"
+
       - name: Test Bot
         run: docker-compose run --rm bot sh -c "pytest ../bot/"
 
       - name: Lint Flake8 Bot
         run: docker-compose run --rm bot sh -c "flake8 ../bot/"
-      
+
       - name: Lint Pylint Bot
-        run:  docker-compose run --rm bot sh -c "pylint ../bot/"
+        run: docker-compose run --rm bot sh -c "pylint ../bot/"
