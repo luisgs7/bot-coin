@@ -19,7 +19,6 @@ class TelegramBot:
         while True:
             update = self.get_new_messages(update_id)
             data = update["result"]
-            print(f"DATA: {data}")
 
             if data:
                 for dado in data:
