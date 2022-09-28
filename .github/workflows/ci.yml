@@ -27,7 +27,7 @@ jobs:
         run: docker-compose run --rm app sh -c "pylint *"
 
       - name: Permission /db
-        run: docker-compose run --rm bot sh -c "chmod -R 755 /db"
+        run: sudo chmod -R 755 /db
 
       - name: Test Bot
         run: docker-compose run --rm bot sh -c "pytest ../bot/"
