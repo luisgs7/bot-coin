@@ -11,7 +11,6 @@ class DataConnect: # noqa pylint: disable=too-few-public-methods
         self.cur = self._con.cursor()
         self._tb_name = constants.TABLE_NAME
         self._id = _id
-        print("Database running...")
 
     def select_coin_id(self):
         """Perform select on the database."""
