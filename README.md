@@ -5,7 +5,11 @@ This project consists, in a simplified form, of a bot for Telegram, with the pur
 - CAD CANADENSE
 - JPY IENE
 - MERCADO BITCOIN
+
 ### Stack:
+
+<img src="https://raw.githubusercontent.com/luisgs7/images-projects/main/bot-coin/bot-coin-arquitecture.png">
+
 This project uses as few Python libraries as possible, communication with the database is performed via sql, and it uses flake8 and pylint to guarantee an algorithm within the PEP8 standard, in addition to the following technologies:
 - Python: 3.10.6
 - Docker and Docker Compose
