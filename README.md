@@ -1,10 +1,10 @@
 ### Bot Coin
 This project consists, in a simplified form, of a bot for Telegram, with the purpose of studies, without any commercial connection, which allows access to quotes of the following currencies in relation to the real:
-- USD DÓLAR / BRL REAL
-- EUR EURO / BRL REAL
-- CAD CANADENSE / BRL REAL
-- JPY IENE / BRL REAL
-- MERCADO BITCOIN / BRL REAL
+- USD DÓLAR
+- EUR EURO
+- CAD CANADENSE
+- JPY IENE
+- MERCADO BITCOIN
 ### Stack:
 This project uses as few Python libraries as possible, communication with the database is performed via sql, and it uses flake8 and pylint to guarantee an algorithm within the PEP8 standard, in addition to the following technologies:
 - Python: 3.10.6
