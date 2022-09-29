@@ -6,7 +6,7 @@ This project consists, in a simplified form, of a bot for Telegram, with the pur
 - JPY IENE
 - MERCADO BITCOIN
 
-#### The Bot is available for access through the link:
+#### The Bot is available for access through the link: <a href="http://t.me/coin_app_bot">Bot Coin</a>            
 
 ### Stack:
 
