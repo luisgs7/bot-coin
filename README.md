@@ -35,23 +35,26 @@ Both applications were developed using the Python programming language, and sql 
 
 To start, create a bot on telegram, following the instructions on the official website, and save the generated token: <a href="https://core.telegram.org/bots">Telegram Bot API</a>. 
 
-With the exception of the database, the other applications use docker and docker compose to run the application, just having these tools installed on your machine. For the database you can use, for example, an online tool, such as: <a href="https://www.elephantsql.com/">Elephantsql</a>, which makes it possible to create a postgreslq database for free.
-
-After creating the database, it is necessary to create a table and add some values to be updated by the data application, for this just execute the sql queries from this file: <a href="https://github.com/luisgs7/bot-coin/blob/main/data/data_save/sql/create_db_table.sql">create_db_table.sql</a>
-
 Then access the website: <a href="https://hgbrasil.com/">HGBrasil</a>, create a free account and generate an access key, which will be added to an .env file in the project.
 
-Also, use the 2 .env.example files, inside each project as a base to create a file in each project, with the name .env, this file contains environment variables that should not be added to version control in any way . In this file you will add information such as telegram bot token, API key, database connection, among other important information. It is extremely necessary to fill it in the correct way, so that the application can work correctly.
+Also, the project has 3 .env.example files, use them as a base to create 3 .env files, in the same location, each file contains environment variables that should not be added to version control in any way. In this file you will add information such as telegram bot token, API key, database connection, among other important information. It is extremely necessary to fill it in the right way, so that the application works correctly.
 
-Okay, now you can create the docker containers, using the following command:
+The only software that needs to be installed in the development environment are docker and docker-compose.
+
+To start the project for the first time, use a shell script in the root of the project. However, first give execute permissions to the script file using the command below.
 ```
-docker-compose build
+sudo chmod 775 run.sh
 ```
 
-And then to run the project, just use this command:
+Now just run this shell script with the command below. Once the script runs, you will be asked to enter the password for the database user you added to the .env file, then just wait a few seconds for the project to be ready to use.
 ```
-docker-compose up 
+./run.sh
 ```
+From the second time the project is started, you can use this command to start the project again.
+```
+docker-compose up -d
+```
+
 ### Bot Initialized
 
 <p><img alt="Image" title="icon" src="https://raw.githubusercontent.com/luisgs7/images-projects/main/bot-coin/telegram-bot-coin.jpg" width="200" height="400"></p>
