@@ -1,6 +1,6 @@
 \c bot_data
 
-ALTER DATABASE bot_coin_table SET timezone TO 'America/Araguaina';  
+ALTER DATABASE bot_data SET timezone TO 'America/Araguaina';
 
 INSERT INTO bot_coin_table(id, name, buy, sell, variation, date_time) 
 			   VALUES (1, 'name1', 0.0, 0.0, 0.0, default);
