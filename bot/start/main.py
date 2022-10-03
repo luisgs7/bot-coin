@@ -30,8 +30,11 @@ class TelegramBot:
                         response = self.generate_response(message, primary_messase)
                         self.reply(response, chat_id)
             
-            except Exception:
-                print("problema no bot")
+            except Exception as e:
+                print(f"Problema no bot, error: {e}")
+            
+            finally:
+                print("Bot OK")
 
     def get_new_messages(self, update_id):
         '''Get new messages sent to bot'''
