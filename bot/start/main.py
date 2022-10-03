@@ -17,18 +17,24 @@ class TelegramBot:
         '''Start Bot'''
         update_id = None
         while True:
-            update = self.get_new_messages(update_id)
-            data = update["result"]
+            try:
+                update = self.get_new_messages(update_id)
+                data = update["result"]
+                if data:
+                    for dado in data:
+                        update_id = dado['update_id']
+                        message = str(dado["message"]["text"])
+                        chat_id = dado["message"]["from"]["id"]
 
-            if data:
-                for dado in data:
-                    update_id = dado['update_id']
-                    message = str(dado["message"]["text"])
-                    chat_id = dado["message"]["from"]["id"]
+                        primary_messase: bool = int(dado["message"]["message_id"]) == 1
+                        response = self.generate_response(message, primary_messase)
+                        self.reply(response, chat_id)
 
-                    primary_messase: bool = int(dado["message"]["message_id"]) == 1
-                    response = self.generate_response(message, primary_messase)
-                    self.reply(response, chat_id)
+            except Exception as error_msg: # noqa pylint: disable=broad-except
+                print(f"Problema no bot, error: {error_msg}")
+
+            finally:
+                print("Bot OK")
 
     def get_new_messages(self, update_id):
         '''Get new messages sent to bot'''
