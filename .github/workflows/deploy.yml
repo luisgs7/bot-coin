@@ -1,29 +1,30 @@
 name: Deploy Bot Beta
 
-on: [push]
-  branches:    
-      - 'deploy/beta'
+on: 
+  push:
+    branches:
+      - 'deploy/**'
 
 jobs:
-  deploy:
-    name: Deploy Bot beta
+  deploy-bot-beta:
+    name: Deploy
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         
       - name: ssh pipelines
-  uses: cross-the-world/ssh-pipeline@master
-  env:
-    WELCOME: "ssh pipeline"
-  with:
-    host: ${{ secrets.DC_HOST }}
-    user: ${{ secrets.DC_USER }}
-    key: ${{ secrets.DC_KEY }}
-    port: ${{ secrets.DC_PORT }}
-    script: |
-      cd /home/luis/bot-beta &&
-      git pull &&
-      docker-compose down && 
-      docker-compose up -d
-    
+        uses: cross-the-world/ssh-pipeline@master
+        env:
+          WELCOME: "ssh pipeline"
+        with:
+          host: ${{ secrets.DC_HOST }}
+          user: ${{ secrets.DC_USER }}
+          key: ${{ secrets.DC_KEY }}
+          port: ${{ secrets.DC_PORT }}
+          script: |
+            cd /home/luis/bot-beta &&
+            git pull &&
+            docker-compose down && 
+            docker-compose up -d
+
