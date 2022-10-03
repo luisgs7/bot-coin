@@ -29,10 +29,10 @@ class TelegramBot:
                         primary_messase: bool = int(dado["message"]["message_id"]) == 1
                         response = self.generate_response(message, primary_messase)
                         self.reply(response, chat_id)
-            
+
             except Exception as e:
                 print(f"Problema no bot, error: {e}")
-            
+
             finally:
                 print("Bot OK")
 
