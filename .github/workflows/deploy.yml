@@ -1,9 +1,9 @@
-name: Deploy Bot Beta
+name: Deploy Bot
 
-on: 
+on:
   push:
     branches:
-      - 'deploy/**'
+      - main
 
 jobs:
   deploy-bot-beta:
@@ -12,19 +12,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
-      - name: ssh pipelines
-        uses: cross-the-world/ssh-pipeline@master
-        env:
-          WELCOME: "ssh pipeline"
+
+      - name: deploying
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DC_HOST }}
-          user: ${{ secrets.DC_USER }}
+          username: ${{ secrets.DC_USER }}
           key: ${{ secrets.DC_KEY }}
-          port: ${{ secrets.DC_PORT }}
-          script: |
-            cd /home/luis/bot-beta &&
-            git pull &&
-            docker-compose down && 
-            docker-compose up -d
-
+          script: ${{ secrets.SCRIPT_DP }}
