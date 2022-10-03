@@ -30,8 +30,8 @@ class TelegramBot:
                         response = self.generate_response(message, primary_messase)
                         self.reply(response, chat_id)
 
-            except Exception as e:
-                print(f"Problema no bot, error: {e}")
+            except Exception as error_msg: # noqa pylint: disable=broad-except
+                print(f"Problema no bot, error: {error_msg}")
 
             finally:
                 print("Bot OK")
