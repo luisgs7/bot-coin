@@ -1,9 +1,11 @@
 name: Deploy Bot
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Checks"]
+    branches: [main]
+    type:
+      - completed
 
 jobs:
   deploy-bot-beta:
