@@ -1,7 +1,7 @@
 name: Deploy Bot
 
 on:
-  check_run:
+  workflow_run:
     workflows: ["Checks"]
     branches: [main]
     types: [completed]
