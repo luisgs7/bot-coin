@@ -52,7 +52,7 @@ To start the project for the first time, use a shell script in the root of the p
 sudo chmod 775 run.sh
 ```
 
-Now just run this shell script with the command below. Once the script runs, you will be asked to enter the password for the database user you added to the .env file, then just wait a few seconds for the project to be ready to use.
+Now just run this shell script with the command below. After the script runs, you will be prompted to enter the database user added to the .env file, then wait a few seconds for the project to be ready to use.
 ```
 ./run.sh
 ```
